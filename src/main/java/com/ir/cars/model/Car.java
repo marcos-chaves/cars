@@ -4,17 +4,15 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
-import java.util.Optional;
-
 @Value.Immutable
-//@JsonDeserialize(as = ImmutableCar.class)
 //@JsonSerialize(as = ImmutableCar.class)
+//@JsonDeserialize(as = ImmutableCar.class)
 public interface Car {
-    String year();
+    String fabricationYear();
 
-    String make();
+    String maker();
 
-    String model();
+    String carModel();
 
-//    Optional<String> accessories = null;
+    Boolean parked();
 }
