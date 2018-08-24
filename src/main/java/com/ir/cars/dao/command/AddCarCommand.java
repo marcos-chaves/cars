@@ -11,14 +11,16 @@ import java.util.function.Consumer;
 public class AddCarCommand implements Consumer<Car> {
 
     private final NamedParameterJdbcTemplate jdbcTemplate;
-    private String INSERT = "INSERT INTO cars " +
+    private String INSERT = "INSERT INTO cars_garage.cars " +
                             "  ( " +
-                            "    fabricationYear," +
+                            "    license_plate," +
+                            "    fabrication_year," +
                             "    maker," +
-                            "    carModel" +
+                            "    car_model," +
+                            "    color," +
                             "    parked" +
                             "  )" +
-                            "  VALUES (:fabricationYear,:maker,:carModel)";
+                            "  VALUES (:licensePlate,:fabricationYear,:maker,:carModel,:color,:parked)";
 
     public AddCarCommand(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
@@ -27,9 +29,11 @@ public class AddCarCommand implements Consumer<Car> {
     @Override
     public void accept(Car car) {
         Map<String, Object> parameters = new HashMap();
+        parameters.put("licensePlate", car.licensePlate());
         parameters.put("fabricationYear", car.fabricationYear());
         parameters.put("maker", car.maker());
         parameters.put("carModel", car.carModel());
+        parameters.put("color", car.color());
         parameters.put("parked", car.parked());
         jdbcTemplate.update(INSERT, parameters);
     }
