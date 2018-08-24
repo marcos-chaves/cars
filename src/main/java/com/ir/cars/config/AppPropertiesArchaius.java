@@ -24,7 +24,7 @@ public class AppPropertiesArchaius implements AppProperties {
 
     @Override
     public Property<String> jdbcUrl() {
-        return newStringProperty("jdbc.url", handleDockerHost("jdbc:postgresql://localhost:5432/cars"));
+        return newStringProperty("jdbc.url", handleDockerHost("jdbc:postgresql://localhost:5432/postgres"));
     }
 
     @Override
@@ -34,12 +34,12 @@ public class AppPropertiesArchaius implements AppProperties {
 
     @Override
     public Property<String> jdbcUsername() {
-        return newStringProperty("secrets.postgres.bileto_event_manager.username", "marcos");
+        return newStringProperty("username", "garage_admin");
     }
 
     @Override
     public Property<String> jdbcPassword() {
-        return newStringProperty("secrets.postgres.bileto_event_manager.password", "marcos");
+        return newStringProperty("password", "cars");
     }
 
     @Override
