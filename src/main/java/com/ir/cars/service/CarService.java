@@ -11,8 +11,19 @@ public class CarService {
         this.carDao = carDao;
     }
 
-    public void park(Car car){
-        carDao.addCar(car);
+    public void register(Car car){
+        carDao.registerCar(car);
     }
 
+    public void park(String licensePlate){
+        carDao.parkCar(licensePlate);
+    }
+
+    public void checkout(String licensePlate){
+        carDao.checkoutCar(licensePlate);
+    }
+
+    public void remove(String licensePlate){
+        carDao.removeCar(licensePlate);
+    }
 }

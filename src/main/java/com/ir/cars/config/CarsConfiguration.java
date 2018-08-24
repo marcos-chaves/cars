@@ -18,6 +18,7 @@ public class CarsConfiguration {
     @Autowired
     public HikariDataSource dataSource() {
         HikariDataSource dataSource = new HikariDataSource();
+        AppPropertiesProvider.initialize(new AppPropertiesArchaius());
         AppProperties carsPropertiesProvider = AppPropertiesProvider.getInstance();
 
         dataSource.setDriverClassName(carsPropertiesProvider.jdbcDriverClassName().getValue());
@@ -43,7 +44,7 @@ public class CarsConfiguration {
 
     @Bean
     @Autowired
-    public CarService pokemonService(CarDao carDao){
+    public CarService carService(CarDao carDao){
         return new CarService(carDao);
     }
 }
