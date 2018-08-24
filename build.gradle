@@ -24,6 +24,23 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
+task packageSources(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts.archives packageSources
+
+sourceSets.main.java.srcDir new File(buildDir, 'generated/source/kapt/main')
+sourceSets.test.java.srcDir new File(buildDir, 'generated/source/kapt/test')
+idea {
+    module {
+        // Marks the already(!) added srcDir as "generated"
+        generatedSourceDirs += file("build/generated/source/kapt/main")
+        generatedSourceDirs += file("build/generated/source/kapt/test")
+    }
+}
+
 
 bootJar {
     baseName = 'cars'
@@ -40,11 +57,13 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.0.4.RELEASE'
-    compile 'org.immutables:value:2.7.0'
+    compileOnly "org.immutables:value:2.2.10:annotations"
+    compile "org.immutables:value:2.2.10"
     compile 'com.netflix.archaius:archaius-core:0.7.5'
     compile 'org.apache.commons:commons-lang3:3.8'
     compile group: 'com.zaxxer', name: 'HikariCP', version: '3.2.0'
     compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1206-jdbc42'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.6'
     testCompile("junit:junit")
 }
 
