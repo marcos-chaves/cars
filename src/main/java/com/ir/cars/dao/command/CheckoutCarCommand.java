@@ -12,7 +12,7 @@ public class CheckoutCarCommand implements Consumer<String> {
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private static final String UPDATE = "UPDATE cars_garage.cars " +
                                         "SET parked = false " +
-                                        "WHERE license_plate = ':licensePlate'";
+                                        "WHERE license_plate = :licensePlate";
 
     public CheckoutCarCommand(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
