@@ -2,7 +2,12 @@ package com.ir.cars.dao;
 
 import com.ir.cars.model.Car;
 
+import java.util.List;
+
 public interface CarDao {
+    List<Car> getAllCars();
+
+    Car getCarByLicensePlate(String licensePlate);
 
     void registerCar(Car car);
 
