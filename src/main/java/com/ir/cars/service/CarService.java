@@ -3,6 +3,8 @@ package com.ir.cars.service;
 import com.ir.cars.dao.CarDao;
 import com.ir.cars.model.Car;
 
+import java.util.List;
+
 public class CarService {
 
     private final CarDao carDao;
@@ -10,6 +12,10 @@ public class CarService {
     public CarService(CarDao carDao){
         this.carDao = carDao;
     }
+
+    public List<Car> getAllCars(){return carDao.getAllCars(); }
+
+    public Car getCarByLicensePlate(String licensePlate) {return carDao.getCarByLicensePlate(licensePlate); }
 
     public void register(Car car){
         carDao.registerCar(car);

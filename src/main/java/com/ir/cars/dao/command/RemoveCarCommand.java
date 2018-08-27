@@ -11,7 +11,7 @@ public class RemoveCarCommand implements Consumer<String> {
 
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private static final String DELETE = "DELETE " +
-                                        "FROM cars_garage.cars" +
+                                        "FROM cars_garage.cars " +
                                         "WHERE license_plate = :licensePlate";
 
     public RemoveCarCommand(JdbcTemplate jdbcTemplate) {
