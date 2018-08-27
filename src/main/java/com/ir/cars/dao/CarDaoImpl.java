@@ -5,6 +5,7 @@ import com.ir.cars.dao.command.CheckoutCarCommand;
 import com.ir.cars.dao.command.GetAllCarsCommand;
 import com.ir.cars.dao.command.GetCarByLicensePlateCommand;
 import com.ir.cars.dao.command.ParkCarCommand;
+import com.ir.cars.dao.command.RemoveAllCarsCommand;
 import com.ir.cars.dao.command.RemoveCarCommand;
 import com.ir.cars.model.Car;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,6 +23,11 @@ public class CarDaoImpl implements CarDao {
     @Override
     public List<Car> getAllCars() {
         return new GetAllCarsCommand(jdbcTemplate).get();
+    }
+
+    @Override
+    public void removeAllCars() {
+        new RemoveAllCarsCommand(jdbcTemplate).get();
     }
 
     @Override

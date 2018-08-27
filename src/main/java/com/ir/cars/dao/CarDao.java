@@ -7,6 +7,8 @@ import java.util.List;
 public interface CarDao {
     List<Car> getAllCars();
 
+    void removeAllCars();
+
     Car getCarByLicensePlate(String licensePlate);
 
     void registerCar(Car car);
