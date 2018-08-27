@@ -15,6 +15,8 @@ public class CarService {
 
     public List<Car> getAllCars(){return carDao.getAllCars(); }
 
+    public void removeAllCars(){ carDao.removeAllCars(); }
+
     public Car getCarByLicensePlate(String licensePlate) {return carDao.getCarByLicensePlate(licensePlate); }
 
     public void register(Car car){
