@@ -1,0 +1,151 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Cars",
+		"_postman_id": "74290f28-8d7e-87a5-9d8c-46969e0761bf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all cars in the garage",
+			"request": {
+				"url": "localhost:8080/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"licensePlate\":\"CSJ-3333\",\n\t\"fabricationYear\":1999,\n\t\"maker\":\"ford\",\n\t\"carModel\": \"escort\",\n\t\"color\":\"black\",\n\t\"parked\":false\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get a car by license plate",
+			"request": {
+				"url": "localhost:8080/CSJ-3333",
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"licensePlate\":\"CSJ-3333\",\n\t\"fabricationYear\":1999,\n\t\"maker\":\"ford\",\n\t\"carModel\": \"escort\",\n\t\"color\":\"black\",\n\t\"parked\":false\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Unregister a car by license plate",
+			"request": {
+				"url": "localhost:8080/CSJ-3331",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Unregister all cars",
+			"request": {
+				"url": "localhost:8080/",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register a car",
+			"request": {
+				"url": "localhost:8080/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"licensePlate\":\"CSJ-3331\",\n\t\"fabricationYear\":2017,\n\t\"maker\":\"vw\",\n\t\"carModel\": \"gol\",\n\t\"color\":\"blue\",\n\t\"parked\":false\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Park a car at the garage",
+			"request": {
+				"url": "localhost:8080/park/CSJ-3333",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout a car from the garage",
+			"request": {
+				"url": "localhost:8080/checkout/CSJ-3333",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
